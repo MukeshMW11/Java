@@ -1,6 +1,8 @@
 package starter;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 class Poly {
     public void add(int a, int b) {
@@ -68,4 +70,24 @@ class TestIntface implements TestInterface, AnotherInterface {
         System.out.println("This is the default system method for interfaces");
     }
 
+}
+
+class Solution {
+    public int[] limitOccurrences(int[] nums, int k) {
+        Map<Integer, Integer> numMap = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (numMap.getOrDefault(nums[i], 0) + 1 <= k) {
+                numMap.put(nums[i], numMap.getOrDefault(nums[i], 0) + 1);
+            } else {
+                nums[i] = 0;
+            }
+        }
+        int idx = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[idx] = nums[i];
+            }
+        }
+        return nums;
+    }
 }

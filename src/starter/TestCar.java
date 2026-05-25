@@ -9,6 +9,7 @@ public class TestCar {
         PolyOverriding();
         TestIntface t1 = new TestIntface();
         t1.makeCall();
+        TestThreads();
 
     };
 
@@ -21,6 +22,25 @@ public class TestCar {
     public static void PolyOverriding() {
         Parent p = new Child();
         p.hello();
+    };
+
+    public static void TestThreads() {
+        long startTime = System.currentTimeMillis();
+        // System.out.println("The thread name is " + Thread.currentThread().getName());
+        MultiThreading multi = new MultiThreading();
+        MultiThreadingAnother multiAnother = new MultiThreadingAnother();
+        Thread anotherThread = new Thread(multiAnother);
+        multi.start();
+        anotherThread.start();
+
+        try {
+            multi.join();
+            anotherThread.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Time Taken " + (System.currentTimeMillis() - startTime) + " ms");
     }
 
 }
