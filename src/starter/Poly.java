@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-class Poly {
+public class Poly {
     public void add(int a, int b) {
         System.out.println(a + b);
     }

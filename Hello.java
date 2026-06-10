@@ -1,7 +1,10 @@
+import starter.Poly;
 
 public class Hello {
     public static void main(String[] args) {
         AI ai = new AI(10);
+
+        Poly poly = new Poly();
     }
 }
 
