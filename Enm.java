@@ -1,19 +1,19 @@
-// enum Enan {
-//     Started, Running, Failed, Exit
-// }
+enum Enan {
+    Started, Running, Failed, Exit
+}
 
 enum Laptop {
     Macbook(2000), Lenovo(2500), Dell(1500), Nitro;
 
     private int price;
 
-    Laptop() {
+    private Laptop() {
         this.price = 1000;
     }
 
-    Laptop(int price) {
+    private Laptop(int price) {
         this.price = price;
-        System.out.println("The laptops" + this.name());
+        System.out.println("The laptops" + this.name() + " " + this.price);
     }
 
     public int getPrice() {
@@ -26,7 +26,9 @@ enum Laptop {
 }
 
 public class Enm {
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws Exception {
+        Enan en = Enan.Running;
         // Enan[] e = Enan.values();
         // for (int i = 0; i < e.length; i++) {
         // System.out.println(e[i]);
@@ -34,8 +36,10 @@ public class Enm {
 
         // System.out.println(e.getClass().getSuperclass());
 
-        for (Laptop lap : Laptop.values()) {
-            System.out.println(lap);
-        }
+        Laptop[] e = Laptop.values();
+
+        // for (Laptop lap : Laptop.values()) {
+        // System.out.println(lap);
+        // }
     }
 }
